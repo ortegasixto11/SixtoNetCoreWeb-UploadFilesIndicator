@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<form id="form-UploadFile" method="post" enctype="multipart/form-data">
+    <input id="input-UploadFile" type="file" name="files" multiple style="display:none;" onchange="submitForm()" />
+    <button type="button" onclick="selectFiles()">Upload</button>
+</form>
+
+<br /> <br />
+<div>
+    <h2>Completado <span id="spanPercent">0</span> %</h2> 
+</div>
+
+
+
+<script src="~/js/upload-files-indicator.js"></script>
+<script>
+    function selectFiles() {
+        document.getElementById('input-UploadFile').click()
+    }
+
+    function submitForm() {
+        var input_file = document.getElementById('input-UploadFile')
+        submitFormUploadFile("/Upload/UploadFile", input_file, "spanPercent")
+    }
+</script>
+
+
